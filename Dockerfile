@@ -19,7 +19,7 @@ RUN apt-get -y install nodejs
 #     && apt-get autoremove \
 #     && apt-get clean \
 #     && apt-get autoclean
-
+RUN npm install -g npm@10.1.0
 RUN apt-get update
 RUN npm install -g yarn
 WORKDIR /home/ide
@@ -52,7 +52,7 @@ ENV NODE_MAJOR=18
 RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
 RUN apt-get update
 RUN apt-get -y install nodejs 
-RUN apt-get update
+RUN npm install -g npm@10.1.0
 RUN npm install -g yarn
 # Env variables
 ENV HOME=/root \
